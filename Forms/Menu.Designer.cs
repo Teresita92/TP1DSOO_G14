@@ -37,9 +37,7 @@
             txtBuscarLector = new TextBox();
             btnBuscarLibro = new Button();
             btnBuscarLector = new Button();
-            PrestarLibro = new Button();
-            btnListarLibros = new Button();
-            btnListarLectores = new Button();
+            btnPrestarLibro = new Button();
             btnGestionarLector = new Button();
             btnGestionarLibros = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -133,32 +131,15 @@
             btnBuscarLector.Text = "🔎";
             btnBuscarLector.UseVisualStyleBackColor = true;
             // 
-            // PrestarLibro
+            // btnPrestarLibro
             // 
-            PrestarLibro.Location = new Point(63, 332);
-            PrestarLibro.Name = "PrestarLibro";
-            PrestarLibro.Size = new Size(129, 26);
-            PrestarLibro.TabIndex = 11;
-            PrestarLibro.Text = "Prestar Libro";
-            PrestarLibro.UseVisualStyleBackColor = true;
-            // 
-            // btnListarLibros
-            // 
-            btnListarLibros.Location = new Point(63, 290);
-            btnListarLibros.Name = "btnListarLibros";
-            btnListarLibros.Size = new Size(129, 26);
-            btnListarLibros.TabIndex = 10;
-            btnListarLibros.Text = "Listar Libros";
-            btnListarLibros.UseVisualStyleBackColor = true;
-            // 
-            // btnListarLectores
-            // 
-            btnListarLectores.Location = new Point(302, 290);
-            btnListarLectores.Name = "btnListarLectores";
-            btnListarLectores.Size = new Size(129, 26);
-            btnListarLectores.TabIndex = 14;
-            btnListarLectores.Text = "Listar Lectores";
-            btnListarLectores.UseVisualStyleBackColor = true;
+            btnPrestarLibro.Location = new Point(64, 249);
+            btnPrestarLibro.Name = "btnPrestarLibro";
+            btnPrestarLibro.Size = new Size(129, 26);
+            btnPrestarLibro.TabIndex = 11;
+            btnPrestarLibro.Text = "Prestar Libro";
+            btnPrestarLibro.UseVisualStyleBackColor = true;
+            btnPrestarLibro.Click += btnPrestarLibro_Click;
             // 
             // btnGestionarLector
             // 
@@ -172,7 +153,7 @@
             // 
             // btnGestionarLibros
             // 
-            btnGestionarLibros.Location = new Point(63, 249);
+            btnGestionarLibros.Location = new Point(64, 290);
             btnGestionarLibros.Name = "btnGestionarLibros";
             btnGestionarLibros.Size = new Size(129, 26);
             btnGestionarLibros.TabIndex = 15;
@@ -191,10 +172,8 @@
             Controls.Add(pictureBox3);
             Controls.Add(txtBuscarLector);
             Controls.Add(txtBuscarLibro);
-            Controls.Add(btnListarLectores);
             Controls.Add(btnGestionarLector);
-            Controls.Add(PrestarLibro);
-            Controls.Add(btnListarLibros);
+            Controls.Add(btnPrestarLibro);
             Controls.Add(btnBuscarLector);
             Controls.Add(btnBuscarLibro);
             Controls.Add(btnDeslog);
@@ -223,9 +202,7 @@
         private Button btnBuscarLector;
         private Button btnGestionLibro;
         private Button btnEliminarLibro;
-        private Button PrestarLibro;
-        private Button btnListarLibros;
-        private Button btnListarLectores;
+        private Button btnPrestarLibro;
         private Button btnEliminarLector;
         private Button btnGestionarLector;
         private Button btnGestionarLibros;

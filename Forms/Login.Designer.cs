@@ -117,6 +117,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Login";
             Text = "Sistema Biblioteca";
+            Load += Login_Load;
             ((System.ComponentModel.ISupportInitialize)imgGrupo14).EndInit();
             ResumeLayout(false);
             PerformLayout();
