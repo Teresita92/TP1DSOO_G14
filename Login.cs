@@ -10,11 +10,20 @@ namespace MiBiblioteca
         // Para llamar al formulario del Menú principal
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Form menu = new Menu();
-            menu.ShowDialog(); 
+            string usuario = txtUser.Text.Trim();
+            string password = txtPass.Text.Trim();
 
+            if (User.Validar(usuario, password))
+            {
+                Form menu = new Menu();
+                menu.Show();
+                this.Hide(); // Ocultás el login
+            }
+            else
+            {
+                MessageBox.Show("Usuario o contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
         // Foco en Ingrese usuario
         private void txtUser_Enter(object sender, EventArgs e)
         {
@@ -52,5 +61,9 @@ namespace MiBiblioteca
             }
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
