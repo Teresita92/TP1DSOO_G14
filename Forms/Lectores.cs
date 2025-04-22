@@ -16,5 +16,10 @@ namespace MiBiblioteca
         {
             InitializeComponent();
         }
+
+        private void Lectores_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -38,7 +38,6 @@
             btnLimpiar = new Button();
             lblNombreLibro = new Label();
             lblAutorLibro = new Label();
-            lblEditorialLibro = new Label();
             txtNombreLibro = new TextBox();
             txtAutorLibro = new TextBox();
             txtEditorialLibro = new TextBox();
@@ -55,6 +54,7 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(599, 185);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // nombreLibro
             // 
@@ -121,15 +121,7 @@
             lblAutorLibro.Size = new Size(83, 15);
             lblAutorLibro.TabIndex = 5;
             lblAutorLibro.Text = "Autor de Libro";
-            // 
-            // lblEditorialLibro
-            // 
-            lblEditorialLibro.AutoSize = true;
-            lblEditorialLibro.Location = new Point(12, 153);
-            lblEditorialLibro.Name = "lblEditorialLibro";
-            lblEditorialLibro.Size = new Size(96, 15);
-            lblEditorialLibro.TabIndex = 6;
-            lblEditorialLibro.Text = "Editorial de Libro";
+ 
             // 
             // txtNombreLibro
             // 
@@ -163,7 +155,6 @@
             Controls.Add(txtEditorialLibro);
             Controls.Add(txtAutorLibro);
             Controls.Add(txtNombreLibro);
-            Controls.Add(lblEditorialLibro);
             Controls.Add(lblAutorLibro);
             Controls.Add(lblNombreLibro);
             Controls.Add(btnLimpiar);
@@ -190,7 +181,6 @@
         private Button btnLimpiar;
         private Label lblNombreLibro;
         private Label lblAutorLibro;
-        private Label lblEditorialLibro;
         private TextBox txtNombreLibro;
         private TextBox txtAutorLibro;
         private TextBox txtEditorialLibro;

@@ -1,3 +1,5 @@
+using MiBiblioteca.Models;
+
 namespace MiBiblioteca
 {
     public partial class Login : Form
@@ -62,6 +64,11 @@ namespace MiBiblioteca
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Login_Load(object sender, EventArgs e)
         {
 
         }

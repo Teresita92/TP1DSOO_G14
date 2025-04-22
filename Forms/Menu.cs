@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MiBiblioteca.Models;
+using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,8 @@ namespace MiBiblioteca
 {
     internal partial class Menu : Form
     {
-        private List<Libro> libros;
-        private List<Lector> lectores;
-        
+        private Biblioteca biblioteca = new Biblioteca(); // <- instancia válida
+
         public Menu()
         {
             InitializeComponent();
@@ -97,17 +98,48 @@ namespace MiBiblioteca
         // Para llamar al formulario del gestor de libros
         private void btnGestionarLibros_Click(object sender, EventArgs e)
         {
-            Form libros = new Libros();
-            libros.ShowDialog(); // Para llamar al formulario del gestor de libros
+            Form libros = new Libros(this.biblioteca); // Paso la biblioteca ya instanciada
+            libros.ShowDialog(); // Llamo al formulario del gestor de libros
         }
-
 
         // Para llamar al formulario del gestor de lectores
         private void btnGestionarLector_Click(object sender, EventArgs e)
         {
             Form lectores = new Lectores();
-            lectores.ShowDialog(); 
+            lectores.ShowDialog();
         }
 
+        private void btnPrestarLibro_Click(object sender, EventArgs e)
+        {
+            using (FormPrestarLibro form = new FormPrestarLibro())
+            {
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    string titulo = form.TituloIngresado;
+                    string dni = form.DniIngresado;
+
+                    string resultado = biblioteca.PrestarLibro(titulo, dni);
+
+                    switch (resultado)
+                    {
+                        case "PRESTAMO EXITOSO":
+                            MessageBox.Show("El préstamo se realizó correctamente.");
+                            break;
+                        case "LIBRO INEXISTENTE":
+                            MessageBox.Show("El libro no está disponible en la biblioteca.");
+                            break;
+                        case "TOPE DE PRESTAMO ALCAZADO":
+                            MessageBox.Show("El lector ya tiene el máximo de 3 préstamos activos.");
+                            break;
+                        case "LECTOR INEXISTENTE":
+                            MessageBox.Show("El lector no está registrado.");
+                            break;
+                        default:
+                            MessageBox.Show("Ocurrió un error inesperado.");
+                            break;
+                    }
+                }
+            }
+        }
     }
 }
