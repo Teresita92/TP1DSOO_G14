@@ -105,8 +105,8 @@ namespace MiBiblioteca
         // Para llamar al formulario del gestor de lectores
         private void btnGestionarLector_Click(object sender, EventArgs e)
         {
-            Form lectores = new Lectores();
-            lectores.ShowDialog();
+            Form lector = new Lectores(this.biblioteca);
+            lector.ShowDialog();
         }
 
         private void btnPrestarLibro_Click(object sender, EventArgs e)

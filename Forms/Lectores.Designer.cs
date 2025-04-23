@@ -32,8 +32,8 @@
             dataGridView1 = new DataGridView();
             nombreLector = new DataGridViewTextBoxColumn();
             dniLector = new DataGridViewTextBoxColumn();
-            txtAutorLibro = new TextBox();
-            txtNombreLibro = new TextBox();
+            txtDni = new TextBox();
+            txtNombreLector = new TextBox();
             lblDniLector = new Label();
             lblNombreLector = new Label();
             btnLimpiar = new Button();
@@ -52,6 +52,7 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(599, 185);
             dataGridView1.TabIndex = 1;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // nombreLector
             // 
@@ -67,21 +68,21 @@
             dniLector.ReadOnly = true;
             dniLector.Width = 200;
             // 
-            // txtAutorLibro
+            // txtDni
             // 
-            txtAutorLibro.AcceptsReturn = true;
-            txtAutorLibro.Location = new Point(132, 104);
-            txtAutorLibro.Name = "txtAutorLibro";
-            txtAutorLibro.Size = new Size(292, 23);
-            txtAutorLibro.TabIndex = 15;
+            txtDni.AcceptsReturn = true;
+            txtDni.Location = new Point(132, 104);
+            txtDni.Name = "txtDni";
+            txtDni.Size = new Size(292, 23);
+            txtDni.TabIndex = 15;
             // 
-            // txtNombreLibro
+            // txtNombreLector
             // 
-            txtNombreLibro.AcceptsReturn = true;
-            txtNombreLibro.Location = new Point(132, 54);
-            txtNombreLibro.Name = "txtNombreLibro";
-            txtNombreLibro.Size = new Size(292, 23);
-            txtNombreLibro.TabIndex = 14;
+            txtNombreLector.AcceptsReturn = true;
+            txtNombreLector.Location = new Point(132, 54);
+            txtNombreLector.Name = "txtNombreLector";
+            txtNombreLector.Size = new Size(292, 23);
+            txtNombreLector.TabIndex = 14;
             // 
             // lblDniLector
             // 
@@ -127,14 +128,15 @@
             btnAgregarLector.TabIndex = 9;
             btnAgregarLector.Text = "Agregar Lector";
             btnAgregarLector.UseVisualStyleBackColor = true;
+            btnAgregarLector.Click += btnAgregarLector_Click;
             // 
             // Lectores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(620, 450);
-            Controls.Add(txtAutorLibro);
-            Controls.Add(txtNombreLibro);
+            Controls.Add(txtDni);
+            Controls.Add(txtNombreLector);
             Controls.Add(lblDniLector);
             Controls.Add(lblNombreLector);
             Controls.Add(btnLimpiar);
@@ -144,6 +146,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Lectores";
             Text = "Sistema Biblioteca - Gestión Lectores";
+            Load += Lectores_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -154,8 +157,8 @@
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn nombreLector;
         private DataGridViewTextBoxColumn dniLector;
-        private TextBox txtAutorLibro;
-        private TextBox txtNombreLibro;
+        private TextBox txtDni;
+        private TextBox txtNombreLector;
         private Label lblDniLector;
         private Label lblNombreLector;
         private Button btnLimpiar;

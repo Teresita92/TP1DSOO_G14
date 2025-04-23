@@ -5,32 +5,41 @@
         public List<Libro> LibrosDisponibles { get; set; } = new List<Libro>();
         public List<Lector> LectoresRegistrados { get; set; } = new List<Lector>();
 
-        //Prcargamos datos a la bibliote - Libros y Lectores
-        public Biblioteca()
+    //Precargamos datos a la biblioteca - Libros y Lectores
+    public Biblioteca()
         {
             LibrosDisponibles = new List<Libro>
         {
-            new Libro("Cien años de soledad","Jose"),
-            new Libro("El principito", "Jose"),
-            new Libro("1984", "Jose"),
-            new Libro("Rayuela", "Jose"),
-            new Libro("Crónica de una muerte anunciada", "Jose")
+            new Libro("Cien años de soledad","Jose", "Editorial"),
+            new Libro("El principito", "Jose", "Editorial"),
+            new Libro("1984", "Jose", "Editorial"),
+            new Libro("Rayuela", "Jose", "Editorial"),
+            new Libro("Crónica de una muerte anunciada", "Jose", "Editorial")
         };
 
             LectoresRegistrados = new List<Lector>
         {
-            new Lector("Caloni Adriano", "36543024"),
-            new Lector("María López", "87654321"),
-            new Lector("Lucía García", "11223344")
+            new Lector("Armando Paredes", "12345678")
         };
+
         }
         public string AltaLector(string nombre, string dni)
         {
-            if (LectoresRegistrados.Any(l => l.Dni == dni))
+            if (this.LectoresRegistrados.Any(l => l.Dni == dni))
                 return "Lector ya registrado";
 
-            LectoresRegistrados.Add(new Lector(nombre, dni));
+            this.LectoresRegistrados.Add(new Lector(nombre, dni));
+            Console.WriteLine("meti los lectores" + this.LectoresRegistrados);
             return "Lector dado de alta";
+        }
+
+        public string AltaLibro(string titulo, string autor, string editorial)
+        {
+            if (this.LibrosDisponibles.Any(l => l.Titulo == titulo))
+                return "Libro ya registrado";
+
+            this.LibrosDisponibles.Add(new Libro (titulo, autor, editorial));
+            return "Libro dado de alta";
         }
 
         public string PrestarLibro(string titulo, string dni)

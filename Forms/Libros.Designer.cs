@@ -41,6 +41,7 @@
             txtNombreLibro = new TextBox();
             txtAutorLibro = new TextBox();
             txtEditorialLibro = new TextBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -85,6 +86,7 @@
             btnAgregarLibro.TabIndex = 1;
             btnAgregarLibro.Text = "Agregar Libro";
             btnAgregarLibro.UseVisualStyleBackColor = true;
+            btnAgregarLibro.Click += btnAgregarLibro_Click;
             // 
             // btnEliminarLibro
             // 
@@ -121,7 +123,6 @@
             lblAutorLibro.Size = new Size(83, 15);
             lblAutorLibro.TabIndex = 5;
             lblAutorLibro.Text = "Autor de Libro";
- 
             // 
             // txtNombreLibro
             // 
@@ -142,16 +143,26 @@
             // txtEditorialLibro
             // 
             txtEditorialLibro.AcceptsReturn = true;
-            txtEditorialLibro.Location = new Point(115, 150);
+            txtEditorialLibro.Location = new Point(115, 155);
             txtEditorialLibro.Name = "txtEditorialLibro";
             txtEditorialLibro.Size = new Size(292, 23);
             txtEditorialLibro.TabIndex = 9;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 158);
+            label1.Name = "label1";
+            label1.Size = new Size(96, 15);
+            label1.TabIndex = 10;
+            label1.Text = "Editorial de Libro";
             // 
             // Libros
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(620, 450);
+            Controls.Add(label1);
             Controls.Add(txtEditorialLibro);
             Controls.Add(txtAutorLibro);
             Controls.Add(txtNombreLibro);
@@ -184,5 +195,6 @@
         private TextBox txtNombreLibro;
         private TextBox txtAutorLibro;
         private TextBox txtEditorialLibro;
+        private Label label1;
     }
 }
